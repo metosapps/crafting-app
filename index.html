@@ -3,203 +3,209 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Crafting — Build, Mine & Explore an Endless Blocky World</title>
-<meta name="description" content="Crafting is a free blocky sandbox adventure. Explore infinite worlds, gather and craft, build anything, and survive. Available on Samsung Galaxy Store.">
-<meta property="og:title" content="Crafting">
-<meta property="og:description" content="Build, mine and explore an endless blocky world — for free!">
-<meta property="og:image" content="images/hero.jpg">
+<title>Crafting Adventure — Build, Mine & Explore a Blocky World</title>
+<meta name="description" content="Crafting Adventure — a free blocky sandbox. Explore endless worlds, gather and craft, build anything, survive. Available on Samsung Galaxy Store.">
+<meta property="og:title" content="Crafting Adventure">
+<meta property="og:description" content="Build, mine and explore an endless blocky world — free on Galaxy Store!">
+<meta property="og:image" content="images/banner.jpg">
 <meta property="og:type" content="website">
 <style>
   :root{
-    --bg:#0d1410; --bg2:#121e17; --card:#16241b; --line:#25392b;
-    --grass:#7bc043; --grass2:#5a9e2f; --gold:#f6a821; --gold2:#e8931a;
-    --dirt:#7a5230; --text:#eaf2ea; --muted:#9db3a4;
-    --diamond:#4fd6d0; --purple:#b07be0;
-    --font:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --sky:#bfe3fb; --sky2:#8fceff; --ink:#12261c; --muted:#5c7a67;
+    --grass:#57a93a; --grass-d:#3f8a29; --gold:#f2a521; --gold-d:#dd8f12;
+    --blue:#2f86d6; --paper:#ffffff; --soft:#eef6ef; --line:#dbe7dc;
+    --font:"Segoe UI",-apple-system,Roboto,Helvetica,Arial,sans-serif;
+    --shadow:0 20px 50px rgba(20,50,35,.18);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden}
+  body{font-family:var(--font);color:var(--ink);background:var(--soft);line-height:1.6;overflow-x:hidden}
   img{max-width:100%;display:block}
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
-  header{position:sticky;top:0;z-index:50;background:rgba(13,20,16,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.5px;font-size:1.05rem}
-  .brand img.bico{width:32px;height:32px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.5)}
-  .navlinks{display:flex;gap:26px;align-items:center;font-size:.95rem;color:var(--muted)}
-  .navlinks a:hover{color:var(--text)}
-  .btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(180deg,var(--grass),var(--grass2));
-    color:#06210a;font-weight:800;padding:12px 22px;border-radius:12px;border:none;cursor:pointer;
-    box-shadow:0 6px 18px rgba(123,192,67,.35);transition:transform .15s,box-shadow .15s;font-size:.98rem}
-  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(123,192,67,.5)}
-  .btn.gold{background:linear-gradient(180deg,var(--gold),var(--gold2));color:#2b1600;box-shadow:0 6px 18px rgba(246,168,33,.35)}
-  .navlinks .btn{padding:9px 16px}
-  @media(max-width:720px){.navlinks a:not(.btn){display:none}}
-  .hero{position:relative;padding:70px 0 50px;text-align:center;
-    background:radial-gradient(1200px 500px at 50% -10%,rgba(74,163,224,.16),transparent 60%),var(--bg)}
-  .appicon{width:112px;height:112px;border-radius:24px;box-shadow:0 14px 40px rgba(0,0,0,.6);
-    border:2px solid rgba(255,255,255,.08);margin-bottom:20px}
-  .hero .badge{display:inline-block;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;color:var(--grass);
-    border:1px solid var(--line);background:var(--card);padding:6px 14px;border-radius:999px;margin-bottom:22px;font-weight:700}
-  .hero h1{font-size:clamp(2.6rem,7vw,5rem);line-height:.98;font-weight:900;letter-spacing:-1px;text-shadow:0 4px 0 rgba(0,0,0,.4)}
-  .hero h1 .g{color:var(--grass)} .hero h1 .o{color:var(--gold)}
-  .hero p.sub{font-size:clamp(1.05rem,2.4vw,1.35rem);color:var(--muted);max-width:620px;margin:18px auto 30px}
-  .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-  .store{display:inline-block;transition:transform .15s,filter .15s}
-  .store img{height:58px;width:auto;border-radius:12px}
-  .store:hover{transform:translateY(-2px);filter:brightness(1.08)}
-  .heroshot{margin:46px auto 0;max-width:1000px;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.6)}
-  .feats{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:34px 0}
-  .featgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-  @media(max-width:760px){.featgrid{grid-template-columns:repeat(2,1fr)}}
-  .feat{text-align:center;padding:10px}
-  .feat .emo{font-size:2rem}
-  .feat h3{font-size:1.05rem;margin-top:8px;letter-spacing:.5px}
-  .feat.explore h3{color:var(--grass)} .feat.survive h3{color:var(--diamond)}
-  .feat.build h3{color:var(--gold)} .feat.adventure h3{color:var(--purple)}
-  .feat p{color:var(--muted);font-size:.9rem}
-  section.pad{padding:64px 0}
-  .eyebrow{color:var(--gold);font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:.78rem;margin-bottom:10px}
-  h2.title{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;letter-spacing:-.5px;margin-bottom:12px}
-  .lead{color:var(--muted);max-width:720px;font-size:1.05rem}
-  .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:34px}
-  @media(max-width:760px){.gallery{grid-template-columns:1fr}}
-  .gallery figure{border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:0 12px 30px rgba(0,0,0,.4);transition:transform .2s}
-  .gallery figure:hover{transform:translateY(-4px)}
-  .about{display:grid;grid-template-columns:1.3fr .9fr;gap:40px;align-items:start}
-  @media(max-width:860px){.about{grid-template-columns:1fr}}
-  .desc p{margin-bottom:16px;color:#d5e2d7}
-  .desc ul{list-style:none;margin:6px 0 18px}
-  .desc li{padding:7px 0 7px 30px;position:relative;color:#d5e2d7}
-  .desc li::before{content:"";position:absolute;left:0;top:12px;width:14px;height:14px;border-radius:3px;background:linear-gradient(135deg,var(--grass) 0 45%,var(--dirt) 45% 100%)}
-  .infocard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;position:sticky;top:84px}
-  .infocard h3{font-size:1.1rem;margin-bottom:16px}
-  .info-row{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:.95rem}
-  .info-row:last-child{border-bottom:none}
-  .info-row span{color:var(--muted)} .info-row b{text-align:right}
-  .pill{display:inline-block;background:rgba(123,192,67,.14);color:var(--grass);border:1px solid rgba(123,192,67,.3);padding:3px 10px;border-radius:999px;font-size:.82rem;font-weight:700}
-  .band{background:linear-gradient(120deg,#132a17,#16241b);border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center;padding:64px 20px}
-  .band h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;margin-bottom:14px}
-  .band p{color:var(--muted);margin-bottom:28px}
-  footer{padding:40px 0 60px;color:var(--muted);font-size:.9rem}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+
+  /* pixel-ish top border accent */
+  .topbar{height:6px;background:repeating-linear-gradient(90deg,var(--grass) 0 24px,var(--gold) 24px 48px,var(--blue) 48px 72px)}
+
+  header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:1.1rem}
+  .brand img{width:38px;height:38px;border-radius:10px;box-shadow:0 3px 10px rgba(0,0,0,.18)}
+  .navlinks{display:flex;gap:24px;align-items:center;color:var(--muted);font-weight:600;font-size:.95rem}
+  .navlinks a:hover{color:var(--ink)}
+  .cta-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(180deg,var(--grass),var(--grass-d));
+    color:#fff;font-weight:800;padding:11px 20px;border-radius:999px;box-shadow:0 8px 20px rgba(87,169,58,.4);
+    transition:transform .15s,box-shadow .15s}
+  .cta-btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(87,169,58,.55)}
+  .cta-btn.gold{background:linear-gradient(180deg,var(--gold),var(--gold-d));box-shadow:0 8px 20px rgba(242,165,33,.42);color:#3a2400}
+  .navlinks .cta-btn{padding:9px 16px;color:#fff}
+  @media(max-width:760px){.navlinks a:not(.cta-btn){display:none}}
+
+  /* HERO */
+  .hero{position:relative;padding:64px 0 74px;text-align:center;
+    background:radial-gradient(1100px 520px at 50% -8%,var(--sky2),var(--sky) 45%,var(--soft) 78%)}
+  .hero .kicker{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);
+    color:var(--grass-d);font-weight:800;font-size:.78rem;letter-spacing:1.5px;text-transform:uppercase;
+    padding:7px 16px;border-radius:999px;box-shadow:0 4px 14px rgba(0,0,0,.06)}
+  .hero h1{font-size:clamp(2.2rem,5.5vw,3.6rem);font-weight:900;letter-spacing:-.5px;margin:20px 0 8px;line-height:1.05}
+  .hero p.sub{color:var(--muted);font-size:clamp(1.02rem,2.2vw,1.25rem);max-width:600px;margin:0 auto 26px;font-weight:500}
+  .bannerframe{max-width:940px;margin:8px auto 30px;border-radius:22px;overflow:hidden;
+    box-shadow:var(--shadow);border:5px solid #fff;transition:transform .25s}
+  .bannerframe:hover{transform:translateY(-4px)}
+  .store-badge{display:inline-block;transition:transform .15s,filter .15s}
+  .store-badge img{height:60px;border-radius:12px}
+  .store-badge:hover{transform:translateY(-2px);filter:brightness(1.06)}
+  .free-note{margin-top:14px;color:var(--muted);font-size:.9rem;font-weight:600}
+
+  /* FEATURES */
+  .features{background:var(--paper);padding:66px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 44px}
+  .sec-head .eye{color:var(--gold-d);font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:.76rem}
+  .sec-head h2{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:900;margin:8px 0 10px}
+  .sec-head p{color:var(--muted)}
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  @media(max-width:820px){.cards{grid-template-columns:repeat(2,1fr)}}
+  .card{background:var(--soft);border:1px solid var(--line);border-radius:18px;padding:26px 22px;text-align:center;
+    transition:transform .2s,box-shadow .2s}
+  .card:hover{transform:translateY(-6px);box-shadow:0 16px 34px rgba(20,50,35,.12)}
+  .card .ic{width:56px;height:56px;margin:0 auto 14px;border-radius:14px;display:grid;place-items:center;font-size:1.7rem;color:#fff}
+  .card.c1 .ic{background:linear-gradient(160deg,#6fc04a,#3f8a29)}
+  .card.c2 .ic{background:linear-gradient(160deg,#49c7c0,#2f86d6)}
+  .card.c3 .ic{background:linear-gradient(160deg,#f6b53a,#dd8f12)}
+  .card.c4 .ic{background:linear-gradient(160deg,#b07be0,#7d4fc0)}
+  .card h3{font-size:1.12rem;margin-bottom:6px}
+  .card p{color:var(--muted);font-size:.92rem}
+
+  /* ABOUT */
+  .about{padding:70px 0}
+  .about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+  @media(max-width:840px){.about-grid{grid-template-columns:1fr}}
+  .about h2{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:900;margin-bottom:14px}
+  .about .eye{color:var(--gold-d);font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:.76rem}
+  .about p{color:#33513f;margin-bottom:14px}
+  .flist{list-style:none;display:grid;gap:10px;margin-top:6px}
+  .flist li{display:flex;gap:12px;align-items:flex-start;color:#33513f;font-weight:600}
+  .flist li b{display:inline-grid;place-items:center;flex:0 0 22px;height:22px;border-radius:6px;
+    background:linear-gradient(135deg,var(--grass) 0 45%,#8a5a34 45% 100%);color:#fff;font-size:.7rem}
+  .info{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:0 12px 30px rgba(20,50,35,.08)}
+  .info h3{margin-bottom:8px}
+  .info .row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+  .info .row:last-of-type{border-bottom:none}
+  .info .row span{color:var(--muted)} .info .row b{font-weight:800}
+  .badge-pill{background:rgba(87,169,58,.14);color:var(--grass-d);border:1px solid rgba(87,169,58,.3);padding:2px 10px;border-radius:999px;font-size:.82rem;font-weight:800}
+
+  /* CTA */
+  .cta{background:linear-gradient(120deg,#3f8a29,#2f86d6);color:#fff;text-align:center;padding:70px 20px}
+  .cta h2{font-size:clamp(1.8rem,4.5vw,2.8rem);font-weight:900;margin-bottom:12px}
+  .cta p{opacity:.92;margin-bottom:26px}
+  .cta .store-badge img{border:2px solid rgba(255,255,255,.5)}
+
+  footer{background:#0f1a13;color:#9db3a4;padding:38px 0 52px;font-size:.9rem}
   .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
-  .foot a:hover{color:var(--text)}
-  .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-  .tag{background:var(--card);border:1px solid var(--line);color:var(--muted);padding:4px 11px;border-radius:8px;font-size:.8rem}
+  .foot .brand{color:#fff;font-size:1rem}
+  .foot a{color:#cfe0d3} .foot a:hover{color:#fff}
 </style>
 </head>
 <body>
+<div class="topbar"></div>
+
 <header>
   <nav class="wrap">
-    <div class="brand"><img class="bico" src="images/app-icon.png" alt="Crafting icon"> Crafting</div>
+    <div class="brand"><img src="images/app-icon.png" alt="Crafting icon"> Crafting</div>
     <div class="navlinks">
       <a href="#features">Features</a>
-      <a href="#screens">Screenshots</a>
       <a href="#about">About</a>
-      <a href="#get" class="btn gold">Get the Game</a>
+      <a href="https://galaxystore.samsung.com/detail/com.freecraft.v20.hws.freegame" target="_blank" rel="noopener" class="cta-btn">Get it Free</a>
     </div>
   </nav>
 </header>
 
+<!-- HERO -->
 <section class="hero">
   <div class="wrap">
-    <img class="appicon" src="images/app-icon.png" alt="Crafting app icon">
-    <span class="badge">🎮 Free Blocky Sandbox Adventure</span>
-    <h1><span class="g">CRAFT</span><span class="o">ING</span></h1>
-    <p class="sub">Build, mine and explore an <b>endless blocky world</b>. Gather resources, craft tools, survive the night — your imagination is the only limit.</p>
-    <div class="cta">
-      <a href="https://galaxystore.samsung.com/detail/com.freecraft.v20.hws.freegame" target="_blank" rel="noopener" class="store"><img src="images/galaxy-store-badge.png" alt="Available on Galaxy Store"></a>
-      <a href="#screens" class="btn">See Screenshots</a>
+    <span class="kicker">⛏️ Free Blocky Sandbox Adventure</span>
+    <h1>Build. Mine. Survive.</h1>
+    <p class="sub">Dive into an endless blocky world — gather resources, craft your gear, and shape your own adventure.</p>
+    <a class="bannerframe" href="https://galaxystore.samsung.com/detail/com.freecraft.v20.hws.freegame" target="_blank" rel="noopener">
+      <img src="images/banner.jpg" alt="Crafting Adventure gameplay">
+    </a>
+    <div>
+      <a class="store-badge" href="https://galaxystore.samsung.com/detail/com.freecraft.v20.hws.freegame" target="_blank" rel="noopener">
+        <img src="images/galaxy-store-badge.png" alt="Available on Galaxy Store">
+      </a>
     </div>
-    <div class="heroshot"><img src="images/hero.jpg" alt="Crafting main menu" loading="eager"></div>
+    <div class="free-note">100% free · Play offline · No registration</div>
   </div>
 </section>
 
-<div class="feats" id="features">
-  <div class="wrap featgrid">
-    <div class="feat explore"><div class="emo">🌍</div><h3>EXPLORE</h3><p>Open World</p></div>
-    <div class="feat survive"><div class="emo">⚔️</div><h3>SURVIVE</h3><p>Gather &amp; Craft</p></div>
-    <div class="feat build"><div class="emo">🏗️</div><h3>BUILD</h3><p>Create Anything</p></div>
-    <div class="feat adventure"><div class="emo">⛏️</div><h3>ADVENTURE</h3><p>Endless Possibilities</p></div>
-  </div>
-</div>
-
-<section class="pad" id="screens">
+<!-- FEATURES -->
+<section class="features" id="features">
   <div class="wrap">
-    <div class="eyebrow">Gallery</div>
-    <h2 class="title">One block at a time</h2>
-    <p class="lead">From sunny forests to riversides and open plains — every world is procedurally generated and unique.</p>
-    <div class="gallery">
-      <figure><img src="images/g1.jpg" alt="Crafting menu" loading="lazy"></figure>
-      <figure><img src="images/g2.jpg" alt="Open world" loading="lazy"></figure>
-      <figure><img src="images/g3.jpg" alt="Coastline" loading="lazy"></figure>
-      <figure><img src="images/g4.jpg" alt="Exploring the hills" loading="lazy"></figure>
-      <figure><img src="images/g5.jpg" alt="Character" loading="lazy"></figure>
-      <figure><img src="images/hero.jpg" alt="Play now" loading="lazy"></figure>
+    <div class="sec-head">
+      <div class="eye">What you can do</div>
+      <h2>A whole world in your pocket</h2>
+      <p>Four ways to play — endless ways to have fun.</p>
+    </div>
+    <div class="cards">
+      <div class="card c1"><div class="ic">🌍</div><h3>Explore</h3><p>Roam infinite procedurally-generated worlds and biomes.</p></div>
+      <div class="card c2"><div class="ic">⚔️</div><h3>Survive</h3><p>Gather, craft tools and weapons, and fight to survive the night.</p></div>
+      <div class="card c3"><div class="ic">🏗️</div><h3>Build</h3><p>From a tiny hut to a huge castle — build anything you imagine.</p></div>
+      <div class="card c4"><div class="ic">⛏️</div><h3>Adventure</h3><p>Mine deep, discover creatures, and take on endless challenges.</p></div>
     </div>
   </div>
 </section>
 
-<section class="pad" id="about" style="background:var(--bg2);border-top:1px solid var(--line)">
-  <div class="wrap about">
-    <div class="desc">
-      <div class="eyebrow">About the game</div>
-      <h2 class="title">Your blocky adventure awaits</h2>
-      <p>Welcome to <b>Crafting</b> — a free sandbox in a blocky world where your imagination has no limits. Explore vast open worlds, gather resources, and build anything you can dream of, from a tiny hut to a massive castle.</p>
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="eye">About the game</div>
+      <h2>Your blocky adventure awaits</h2>
+      <p><b>Crafting</b> is a free sandbox in a blocky world where your imagination has no limits. Explore vast open worlds, gather resources, and build anything you can dream of.</p>
       <p>By day, collect materials and build. By night, defend yourself and survive.</p>
-      <h3 style="margin:10px 0 4px;font-size:1.15rem">Game features</h3>
-      <ul>
-        <li>Endless procedurally-generated world — every game is unique</li>
-        <li>Survival mode — mine, craft and survive</li>
-        <li>Free building — hundreds of blocks and materials</li>
-        <li>Diverse biomes: forests, mountains, oceans, deserts</li>
-        <li>Friendly and dangerous creatures</li>
-        <li>Character customization</li>
-        <li>Smooth touch controls</li>
-        <li>Play offline — no internet required</li>
+      <ul class="flist">
+        <li><b>✓</b> Endless procedurally-generated worlds</li>
+        <li><b>✓</b> Survival mode — mine, craft &amp; survive</li>
+        <li><b>✓</b> Hundreds of blocks &amp; materials to build with</li>
+        <li><b>✓</b> Diverse biomes: forests, mountains, oceans, snow</li>
+        <li><b>✓</b> Character customization &amp; smooth touch controls</li>
+        <li><b>✓</b> Play offline — no internet required</li>
       </ul>
-      <p>Gather wood, stone and ore and turn them into tools, weapons and structures. Houses, castles, farms, entire cities — you are limited only by your imagination.</p>
     </div>
-    <aside class="infocard">
+    <aside class="info">
       <h3>Game info</h3>
-      <div class="info-row"><span>Price</span><b><span class="pill">Free</span></b></div>
-      <div class="info-row"><span>Genre</span><b>Sandbox · Adventure</b></div>
-      <div class="info-row"><span>Platform</span><b>Android</b></div>
-      <div class="info-row"><span>Store</span><b>Samsung Galaxy Store</b></div>
-      <div class="info-row"><span>Age rating</span><b>Everyone · 6+</b></div>
-      <div class="info-row"><span>Internet</span><b>Not required (offline)</b></div>
-      <div style="margin-top:20px"><a href="https://galaxystore.samsung.com/detail/com.freecraft.v20.hws.freegame" target="_blank" rel="noopener" class="btn gold" style="width:100%;justify-content:center">Download Now</a></div>
+      <div class="row"><span>Price</span><b><span class="badge-pill">Free</span></b></div>
+      <div class="row"><span>Genre</span><b>Sandbox · Adventure</b></div>
+      <div class="row"><span>Platform</span><b>Android</b></div>
+      <div class="row"><span>Store</span><b>Galaxy Store</b></div>
+      <div class="row"><span>Age rating</span><b>Everyone · 6+</b></div>
+      <div class="row"><span>Internet</span><b>Not required</b></div>
+      <a href="https://galaxystore.samsung.com/detail/com.freecraft.v20.hws.freegame" target="_blank" rel="noopener" class="cta-btn gold" style="width:100%;justify-content:center;margin-top:18px">Download Now</a>
     </aside>
   </div>
 </section>
 
-<div class="band" id="get">
+<!-- CTA -->
+<section class="cta">
   <div class="wrap">
-    <div class="eyebrow" style="color:var(--grass)">Ready to play?</div>
-    <h2>Start your adventure today</h2>
-    <p>Download Crafting free on the Samsung Galaxy Store.</p>
-    <div class="cta">
-      <a href="https://galaxystore.samsung.com/detail/com.freecraft.v20.hws.freegame" target="_blank" rel="noopener" class="store"><img src="images/galaxy-store-badge.png" alt="Available on Galaxy Store"></a>
-    </div>
-    <div class="tags" style="justify-content:center">
-      <span class="tag">craft</span><span class="tag">crafting</span><span class="tag">building</span>
-      <span class="tag">sandbox</span><span class="tag">survival</span><span class="tag">blocks</span>
-      <span class="tag">adventure</span><span class="tag">mining</span><span class="tag">exploration</span>
-    </div>
+    <h2>Ready to start crafting?</h2>
+    <p>Download Crafting free on the Samsung Galaxy Store and begin your adventure.</p>
+    <a class="store-badge" href="https://galaxystore.samsung.com/detail/com.freecraft.v20.hws.freegame" target="_blank" rel="noopener">
+      <img src="images/galaxy-store-badge.png" alt="Available on Galaxy Store">
+    </a>
   </div>
-</div>
+</section>
 
 <footer>
   <div class="wrap foot">
     <div>
-      <div class="brand" style="font-size:1rem"><img class="bico" src="images/app-icon.png" alt="icon"> Crafting</div>
+      <div class="brand" style="display:flex;align-items:center;gap:10px;font-weight:800"><img src="images/app-icon.png" alt="icon" style="width:30px;height:30px;border-radius:8px"> Crafting</div>
       <p style="margin-top:8px">A free blocky sandbox adventure for Android.</p>
     </div>
     <div style="text-align:right">
       <p><a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="mailto:aurelianowaczyk872@gmail.com">Contact</a></p>
       <p style="margin-top:6px">📧 aurelianowaczyk872@gmail.com</p>
-      <p style="margin-top:6px;font-size:.82rem">© 2026 Crafting. Not affiliated with Mojang or Minecraft.</p>
+      <p style="margin-top:6px;font-size:.82rem;opacity:.7">© 2026 Crafting. Not affiliated with Mojang or Minecraft.</p>
     </div>
   </div>
 </footer>
