@@ -1,0 +1,12 @@
+{
+  "_comment": "Crafting (com.freecraft.v20.hws.freegame) - Galaxy Store. v43 engine reads ads_enabled from JSON. Set ads_enabled=true + real admob_* IDs to enable real ads. TEST ids below MUST NOT ship to real users on a live app.",
+  "ads_enabled": false,
+  "admob_app_id": "ca-app-pub-3940256099942544~3347511713",
+  "admob_app_open_id": "ca-app-pub-3940256099942544/9257395921",
+  "admob_interstitial_id": "ca-app-pub-3940256099942544/1033173712",
+  "admob_rewarded_id": "ca-app-pub-3940256099942544/5224354917",
+  "yandex_interstitial_id": "",
+  "yandex_rewarded_id": "",
+  "yandex_appopen_id": "",
+  "startapp_app_id": ""
+}
